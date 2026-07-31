@@ -1,4 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { LoadingService } from './loading/loading.service';
 
 
 
@@ -7,7 +8,8 @@ import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: false,
+    providers: [LoadingService]
 })
 export class AppComponent implements  OnInit {
 

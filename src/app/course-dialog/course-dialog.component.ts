@@ -5,6 +5,7 @@ import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import moment from 'moment';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
     selector: 'course-dialog',
@@ -22,6 +23,7 @@ export class CourseDialogComponent implements AfterViewInit {
     constructor(
         private fb: FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
+        private loadingService: LoadingComponent,
         @Inject(MAT_DIALOG_DATA) course:Course) {
 
         this.course = course;

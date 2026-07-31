@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 export class LoadingComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private loadingService: LoadingComponent) {
 
   }
 
