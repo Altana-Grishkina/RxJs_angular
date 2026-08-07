@@ -30,9 +30,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reloadCourses();
+  }
+
+  reloadCourses() {
+
+    this.loadingService.loadingOn();
+
     const courses$ = this.coursesService.loadAllCourses()
       .pipe(
-        map(courses => courses.sort(sortCoursesBySeqNo))
+        map(courses => courses.sort(sortCoursesBySeqNo)),
+        finalize(() => this.loadingService.loadingOff())
       );
     this.beginnerCourses$ = courses$.pipe(
       map(courses => courses.filter(course => course.category === "BEGINNER"))
@@ -41,7 +49,6 @@ export class HomeComponent implements OnInit {
       map(courses => courses.filter(course => course.category === "ADVANCED"))
     );
   }
-
   editCourse(course: Course) {
 
     const dialogConfig = new MatDialogConfig();
