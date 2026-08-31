@@ -1,5 +1,6 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { LoadingService } from './loading/loading.service';
+import { MessagesService } from './messages/messages.service';
 
 
 
@@ -9,7 +10,9 @@ import { LoadingService } from './loading/loading.service';
     styleUrls: ['./app.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
-    providers: [LoadingService]
+    providers: [
+      LoadingService,
+      MessagesService]
 })
 export class AppComponent implements  OnInit {
 
